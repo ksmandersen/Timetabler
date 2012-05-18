@@ -1,0 +1,45 @@
+# Ignoring default cake-files
+app/tmp/cache/models/*
+app/tmp/cache/persistent/*
+app/tmp/cache/views/*
+app/tmp/logs/*
+app/tmp/sessions/*
+app/tmp/tests/*
+#app/tmp/*
+app/Config/database.php
+/lib/Cake/Console/Templates/skel/tmp/
+tags
+!empty
+
+# ignore dangerous files
+
+# Ignore local dev, project and system files
+.DS_Store
+!empty
+nbproject/*
+*.*~
+app/webroot/.sass-cache/*
+
+*.aux
+*.glo
+*.idx
+*.log
+*.toc
+*.ist
+*.acn
+*.acr
+*.alg
+*.bbl
+*.blg
+*.dvi
+*.glg
+*.gls
+*.ilg
+*.ind
+*.lof
+*.lot
+*.maf
+*.mtc
+*.mtc1
+*.out
+*.synctex.gz
