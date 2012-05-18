@@ -1,0 +1,710 @@
+@import "compass";
+@import "compass/css3";
+@import "compass/reset/utilities";
+
+@import "plan.scss";
+
+@include global-reset;
+
+body {
+	background: rgb(245, 245, 245);
+	color: #282828;
+	font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.plan-wrap {
+	overflow-x: hidden;
+}
+
+// ============== //
+// Dialog Section //
+// ============== //
+
+#darkLayer {
+	display:block;
+	position: fixed;
+	top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	z-index: 100000;
+	background-color: #000000;
+	@include opacity(0.3);
+	visibility: hidden;
+}
+
+#dialogChange {
+	width: 340px;
+	background-color: #ffffff;
+	@include border-radius(5px);
+	z-index: 100001;
+	position: fixed;
+	left: 50%;
+	margin-left: -200px;
+	margin-top: 120px;
+	padding: 30px;
+	visibility: hidden;
+	font-size: 18px;
+	color: #444;
+}
+
+#dialogCreate {
+	width: 340px;
+	background-color: #ffffff;
+	@include border-radius(5px);
+	z-index: 100001;
+	position: fixed;
+	left: 50%;
+	margin-left: -200px;
+	margin-top: 120px;
+	padding: 30px;
+	visibility: hidden;
+	font-size: 18px;
+	color: #444;
+}
+
+#createFormContainer {
+	height: 170px;
+}
+
+#dialogRight {
+	font-size: 16px;
+	color: #777;
+	float: left;
+	margin: 8px;
+}
+
+#dialogLeft {
+	font-size: 16px;
+	color: #777;
+	float: left;
+	margin: 8px;
+}
+
+.sideBySideInput {
+	float: left;
+}
+
+.dialogBottons {
+	margin-top: 60px;
+	margin: 4px;
+	width: 300px;
+}
+
+// ============== //
+// Header Section //
+// ============== //
+
+$nav_background_c1: #484848;
+$nav_background_c2: #232323;
+
+$nav_border_c1: rgb(37, 37, 37);
+$nav_border_c2: rgb(71, 71, 71);
+
+#header-wrapper {
+	@include background(linear-gradient(color-stops($nav_background_c1, $nav_background_c2)));
+	border-bottom: 1px solid #000;
+	border-top: 1px solid rgb(118, 118, 118);
+	
+	header {
+		height: 40px;
+		margin: 0 auto;
+		overflow: hidden;
+		width: 960px;
+		
+		h1#logo {
+			display: none;
+			float: left;
+		}
+	} // header
+} // #header-wrapper
+
+nav#navigation-main {
+	float: left;
+	
+	ul {				
+		border-left: 1px solid $nav_border_c1;
+		border-right: 1px solid $nav_border_c2;
+		list-style-type: none;
+		
+		li {
+			border-left: 1px solid $nav_border_c2;
+			border-right: 1px solid $nav_border_c1;
+			cursor: pointer;
+			float: left;
+			//heigth: 10px;
+			//min-width: 34px;
+			//padding: 12px 12px;
+			//text-align: center;
+			
+			a {
+				color: #fff;
+				display: block;
+				font-size: 13px;
+				font-weight: bold;
+				min-width: 34px;
+				padding: 12px 12px;
+				text-decoration: none;
+				text-align: center;	
+			} // a
+			
+			&:hover {
+					@include background(linear-gradient(color-stops(1.1 * $nav_background_c1, 1.1* $nav_background_c2)));
+			}
+		} // li
+	} // ul
+} // #navigation-main
+
+.clear {
+	clear: both;
+}
+
+// =============== //
+// Content Section //
+// =============== //
+
+#content {
+	margin: 0 auto;
+	padding-bottom: 30px;
+	width: 960px;
+}
+
+#message-wrapper {
+	margin: 0 auto;
+	padding-top: 10px;
+	width: 960px;
+	text-align: center;
+	
+	.message {
+		background-color: rgb(218, 249, 211);
+		border: 1px solid rgb(196, 248, 168);
+		@include border-radius(3px);
+		display: inline-block;
+		font-weight: bold;
+		font-size: 13px;
+		padding: 8px 14px;
+		text-align: center;
+	}
+		
+	#badMessage {
+		background-color: rgb(252, 215, 215);
+		border: 1px solid rgb(255, 199, 199);
+	}
+	
+}
+
+// ========== //
+// Typography //
+// ========== //
+
+h1 {
+		font-size: 2em;
+		margin: 0.67em 0;
+}
+
+h2 {
+		font-size: 1.5em;
+		margin: 0.83em 0;
+}
+
+h3 {
+		font-size: 1.17em;
+		margin: 1em 0;
+}
+
+h4 {
+		font-size: 1em;
+		margin: 1.33em 0;
+}
+
+h5 {
+		font-size: 0.83em;
+		margin: 1.67em 0;
+}
+
+h6 {
+		font-size: 0.75em;
+		margin: 2.33em 0;
+}
+
+/*
+ * Addresses styling not present in IE7/8/9, S5, Chrome
+ */
+
+abbr[title] {
+		border-bottom: 1px dotted;
+}
+
+/*
+ * Addresses style set to 'bolder' in FF3+, S4/5, Chrome
+*/
+
+b,
+strong {
+		font-weight: bold;
+}
+
+i,
+em {
+	font-style: italic;	
+}
+
+blockquote {
+		margin: 1em 40px;
+}
+
+/*
+ * Addresses styling not present in S5, Chrome
+ */
+
+dfn {
+		font-style: italic;
+}
+
+/*
+ * Addresses styling not present in IE6/7/8/9
+ */
+
+mark {
+		background: #ff0;
+		color: #000;
+}
+
+/*
+ * Addresses margins set differently in IE6/7
+ */
+
+p,
+pre {
+		margin: 1em 0;
+}
+
+/*
+ * Corrects font family set oddly in IE6, S4/5, Chrome
+ * en.wikipedia.org/wiki/User:Davidgothberg/Test59
+ */
+
+pre,
+code,
+kbd,
+samp {
+		font-family: monospace, serif;
+		_font-family: 'courier new', monospace;
+		font-size: 1em;
+}
+
+/*
+ * Improves readability of pre-formatted text in all browsers
+ */
+
+pre {
+		white-space: pre;
+		white-space: pre-wrap;
+		word-wrap: break-word;
+}
+
+/*
+ * 1. Addresses CSS quotes not supported in IE6/7
+ * 2. Addresses quote property not supported in S4
+ */
+
+/* 1 */
+
+q {
+		quotes: none;
+}
+
+/* 2 */
+
+q:before,
+q:after {
+		content: '';
+		content: none;
+}
+
+small {
+		font-size: 75%;
+}
+
+/*
+ * Prevents sub and sup affecting line-height in all browsers
+ * gist.github.com/413930
+ */
+
+sub,
+sup {
+		font-size: 75%;
+		line-height: 0;
+		position: relative;
+		vertical-align: baseline;
+}
+
+sup {
+		top: -0.5em;
+}
+
+sub {
+		bottom: -0.25em;
+}
+
+table {
+	border: 1px solid rgb(221, 221, 221);
+
+	thead {
+		tr {
+			background: rgb(242, 242, 242);
+
+			th, td {
+				border-bottom: 1px solid rgb(196, 196, 196);
+				color: rgb(102, 102, 102);
+				font-size: 10px;
+				font-weight: bold;
+				padding: 8px;
+				text-transform: uppercase;
+				
+				a {
+					color: rgb(102, 102, 102);
+				}
+			} // th/td
+		} // tr
+	} // thead
+
+
+
+	tbody {
+		tr {
+			&:nth-child(odd) td {
+				background: #fff;
+			}
+
+			&:nth-child(even) td {
+				background: rgb(250, 250, 250);
+			}
+			
+			th {
+				color: rgb(102, 102, 102);
+				font-size: 10px;
+				font-weight: bold;
+				padding: 8px;
+				text-transform: uppercase;
+			}
+
+			td {
+				//color: rgb(104, 104, 104)
+				color: #333;
+				border-bottom: 1px solid rgb(242, 242, 242);
+				padding: 8px;
+
+				&:last-child {
+					//border-bottom: none
+				}
+			} // td
+		} // tr
+
+		tr.error td {
+			background-color: #FF6B71;
+		}
+		
+		tr.success td {
+			background-color: #55BF6B;
+		}
+	} // tbody
+} // table
+
+table.fullwidth {
+	border-collapse: separate;
+	margin-bottom: 20px;
+	width: 100%;
+}
+
+div.table-pagination {
+	margin-bottom: 10px;
+}
+
+
+// =======
+// BUTTONS
+// =======
+
+@mixin fancyButton {
+	@include border-radius(3px);
+	color: #333;
+	display: inline-block;
+	font-size: 12px;
+	font-weight: bold;
+	margin: 0px 2px;
+	padding: 5px 14px;
+	text-decoration: none;
+	$bgtop: rgb(240, 239, 239);
+	$bgend: rgb(210, 211, 211);
+	$border: #ccc;
+	$shadow: #ccc;
+	border: 1px solid $border;
+	@include background(linear-gradient(color-stops($bgtop, $bgend)));
+	// @include text-shadow($shadow, 1px, 2px, 2px);
+	
+	&.small {
+		padding: 3px
+	}
+	
+	&:hover {
+		@include background( linear-gradient(color-stops($bgtop * 1.05, $bgend * 1.05)));
+	}
+	
+	&:active {
+		@include background( linear-gradient(color-stops($bgtop * 0.95, $bgend * 0.95)));
+	}
+	
+	&[disabled] {
+		color: lighten(#333, 50);
+		@include background( linear-gradient(color-stops($bgtop, $bgend)));
+	}
+	
+	&.green {
+		color: #fff;
+		$bgtop: rgb(121, 177, 3);
+		$bgend: rgb(100, 145, 12);
+		$border: rgb(78, 113, 12);
+		$shadow: rgb(89, 131, 13) * 0.9;
+	
+		border: 1px solid $border;
+		@include background( linear-gradient(color-stops($bgtop, $bgend)));
+		@include text-shadow($shadow, 1px, 2px, 2px);
+	
+		&:hover {
+			@include background( linear-gradient(color-stops($bgtop * 1.05, $bgend * 1.05)));
+		}
+	
+		&:active {
+			@include background( linear-gradient(color-stops($bgtop * 0.9, $bgend * 0.9)));
+		}
+	}
+	
+	&.red {
+		color: #fff;
+		$bgtop: rgb(194, 32, 9);
+		$bgend: rgb(173, 38, 35);
+		$border: rgb(131, 23, 21);
+		$shadow: rgb(146, 25, 23);
+	
+		border: 1px solid $border;
+		@include background( linear-gradient(color-stops($bgtop, $bgend)));
+		@include text-shadow($shadow, 1px, 2px, 2px);
+	
+		&:hover {
+			@include background( linear-gradient(color-stops($bgtop * 1.05, $bgend * 1.1)));	
+		}
+	
+		&:active {
+			@include background( linear-gradient(color-stops($bgtop * 0.9, $bgend * 0.9)));
+		}
+	}
+}
+
+input[type="button"], input[type="submit"], a.button, button,  {
+	@include fancyButton;
+}
+
+#entity-list td a.button {
+	float: right;
+}
+
+
+
+
+/* 	Artfully masterminded by ZURB
+	Make sure to include app.js / foundation.js if you are going to use inline label inputs
+*/
+
+
+/* -----------------------------------------
+	 Standard Forms
+----------------------------------------- */
+	$error_red: #C00000;
+	//$error_red: rgb(172, 24, 27);
+
+
+	form.nice .buttons { margin-top: 20px; }
+
+	form { margin: 0 0 18px; }
+	form label { display: block; font-size: 13px; line-height: 18px; cursor: pointer; margin-bottom: 9px; }
+
+	input.input-text, textarea { border-right: 1px solid #bbb; border-bottom: 1px solid #bbb; }
+	input.input-text, textarea, select { display: block; margin-bottom: 9px; }
+	label + input.input-text, label + textarea, label + select, label + div.dropdown, select + div.dropdown { margin-top: -9px; }
+	textarea { max-width: 100%; }
+
+	/* Text input and textarea font and padding */
+	input.input-text, textarea { font-size: 13px; padding: 4px 3px 2px; background: #fff; }
+	input.input-text:focus, textarea:focus { outline: none !important; }
+	input.input-text.oversize, textarea.oversize { font-size: 18px !important; padding: 4px 5px !important; }
+	input.input-text:focus, textarea:focus { background: #f9f9f9; }
+
+	/* Text input and textarea, disabled */
+	input.input-text[disabled], textarea[disabled] { background-color: #ddd; }
+
+	/* Inlined Label Style */
+	input.placeholder, textarea.placeholder { color: #888; }
+
+	/* Text input and textarea sizes */
+	input.input-text, textarea { width: 254px; box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; }
+	input.small, textarea.small { width: 134px; }
+	input.medium, textarea.medium { width: 254px; }
+	input.large, textarea.large { width: 434px; }
+	input.expand, textarea.expand { width: 100%; }
+
+	/* Lock textareas so they can't be resized beyond their set width in webkit */
+	textarea.locked 	{ max-width: 254px; }
+			textarea.locked.small 	{ max-width: 134px; }
+			textarea.locked.large 	{ max-width: 434px; }
+			textarea.locked.expand 	{ max-width: 100%; }
+
+	/* Fieldsets */
+	form fieldset { padding: 9px 9px 2px 9px; border: solid 1px #ddd; margin: 18px 0; }
+
+	/* Inlined Radio & Checkbox */
+	.form-field input[type=radio], div.form-field input[type=checkbox] { display: inline; width:auto; margin-bottom:0; }
+
+	/* Errors */
+	.input.error input, input.input-text.red { border-color: #C00000; background-color: rgba(255,0,0,0.15); }
+	.input.error label, label.red { color: #C00000; }
+	.input.error .error-message, .error-message { margin-top: -6px; display: block; margin-bottom: 9px; font-size: 11px; color: #C00000; width: 254px; box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; }
+
+	.small + .error-message { width: 134px; }
+	.medium + .error-message { width: 254px; }
+	.large + .error-message { width: 434px; }
+	.expand + .error-message { width: 100%; }
+
+	.small.oversize + .error-message { width: 144px; }
+	.medium.oversize + .error-message { width: 264px; }
+	.large.oversize + .error-message { width: 444px; }
+	.expand.oversize + .error-message { width: 100%; }
+
+	/* -----------------------------------------
+		 Nicer Forms
+	----------------------------------------- */
+	form.nice div.form-field input, form.nice input.input-text, form.nice textarea { border: solid 1px #bbb; border-radius: 2px; -webkit-border-radius: 2px; -moz-border-radius: 2px; }
+	form.nice div.form-field input, form.nice input.input-text, form.nice textarea { font-size: 13px; padding: 6px 3px 4px; outline: none !important; background: url(../images/misc/input-bg.png) #fff; }
+	form.nice div.form-field input:focus, form.nice input.input-text:focus, form.nice textarea:focus { background-color: #f9f9f9; }
+
+	/* Text input and textarea, disabled */
+	form.nice div.form-field input[disabled], form.nice input.input-text[disabled], form.nice textarea[disabled] { background-color: #ddd; }
+
+	form.nice fieldset { border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; }
+
+	form.nice div.form-field input[type=radio], form.nice div.form-field input[type=checkbox] { display: inline; width:auto; margin-bottom:0; }
+
+	form.nice div.input.error .error-message, form.nice .error-message { padding: 6px 4px; border: solid 0 #C00000; border-width: 0 1px 1px 1px; margin-top: -10px; background: $error_red; color: #fff; font-size: 12px; font-weight: bold; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; -webkit-border-bottom-left-radius: 2px; -webkit-border-bottom-right-radius: 2px; -moz-border-radius-bottomleft: 2px; -moz-border-radius-bottomright: 2px; }
+
+ 	form.nice div.input.error .small + small, form.nice .small + .error-message { width: 132px; }
+	form.nice div.input.error .medium + small, form.nice .medium + .error-message { width: 252px; }
+	form.nice div.input.error .large + small, form.nice .large + .error-message { width: 432px; }
+
+	form.nice div.input.error .small.oversize + small, form.nice .small.oversize + .error-message { width: 136px; }
+	form.nice div.input.error .medium.oversize + small, form.nice .medium.oversize + .error-message { width: 256px; }
+	form.nice div.input.error .large.oversize + small, form.nice .large.oversize + .error-message { width: 436px; }
+
+	/* -----------------------------------------
+		 Custom Forms
+	----------------------------------------- */
+
+	form.custom span.custom { display: inline-block; width: 14px; height: 14px; position: relative; top: 2px; border: solid 1px #ccc; background: url(../images/misc/custom-form-sprites.png) 0 0 no-repeat; }
+	form.custom span.custom.radio { border-radius: 7px; -webkit-border-radius: 7px; -moz-border-radius: 7px; }
+	form.custom span.custom.radio.checked { background-position: 0 -14px; }
+	form.custom span.custom.checkbox.checked { background-position: 0 -28px; }
+
+	form.custom div.custom.dropdown { display: block; position: relative; width: auto; height: 28px; margin-bottom: 9px; margin-top: 2px; }
+	form.custom div.custom.dropdown a.current { display: block; width: auto; line-height: 26px; min-height: 26px; padding: 0 38px 0 6px; border: solid 1px #ddd; color: #141414; background-color: #fff; word-wrap: nowrap; }
+	form.custom div.custom.dropdown a.selector { position: absolute; width: 26px; height: 26px; display: block; background: url(../images/misc/custom-form-sprites.png) -14px 1px no-repeat; right: 0; top: 0; border: solid 1px #ddd; }
+	form.custom div.custom.dropdown:hover a.selector,
+	form.custom div.custom.dropdown.open a.selector { background-position: -14px -26px; }
+
+	form.custom div.custom.dropdown ul { position: absolute; width: auto; display: none; margin: 0; left: 0; top: 27px; margin: 0; padding: 0; background: #fff; background: rgba(255,255,255,0.95); border: solid 1px #ddd; }
+	form.custom div.custom.dropdown ul li { cursor: pointer; padding: 3px 38px 3px 6px; min-height: 18px; margin: 0; white-space: nowrap}
+	form.custom div.custom.dropdown ul li.selected { background: url(../images/misc/custom-form-sprites.png) right -52px no-repeat; }
+	form.custom div.custom.dropdown ul li:hover { background-color: #2a85e8; color: #fff; }
+	form.custom div.custom.dropdown ul li.selected:hover { background: url(../images/misc/custom-form-sprites.png) #2a85e8 right -78px no-repeat; }
+	form.custom div.custom.dropdown ul.show { display: block; }
+
+	form.custom div.custom.dropdown.open ul { display: block; z-index: 10; }
+
+	form.custom div.custom.dropdown.small { width: 134px !important; }
+	form.custom div.custom.dropdown.medium { width: 254px !important; }
+	form.custom div.custom.dropdown.large { width: 434px !important; }
+	form.custom div.custom.dropdown.expand { width: 100% !important; }
+
+	form.custom div.custom.dropdown.open.small ul { width: 132px !important; }
+	form.custom div.custom.dropdown.open.medium ul { width: 252px !important; }
+	form.custom div.custom.dropdown.open.large ul { width: 432px !important; }
+	form.custom div.custom.dropdown.open.expand ul { width: 100% !important; box-sizing: border-box; }
+
+	/* Custom input, disabled */
+	form.custom .custom.disabled { background-color: #ddd; }
+
+	/* -----------------------------------------
+		 Nicer Custom Forms
+	----------------------------------------- */
+	form.custom.nice span.custom.checkbox { border-radius: 2px; -webkit-border-radius: 2px; -moz-border-radius: 2px; }
+
+	form.custom.nice div.custom.dropdown a.current { border-radius: 2px; -webkit-border-radius: 2px; -moz-border-radius: 2px; background-image: url(../images/misc/input-bg-outset.png); background-position: bottom right; }
+	form.custom.nice div.custom.dropdown a.selector { height: 27px; border-width: 0 0 0 1px; }
+	form.custom.nice div.custom.dropdown ul { border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; -webkit-border-bottom-left-radius: 2px; -webkit-border-bottom-right-radius: 2px; -moz-border-radius-bottomleft: 2px; -moz-border-radius-bottomright: 2px; }
+
+
+
+
+
+/* Pagination */
+
+.fdtablePaginatorWrapTop { display:none; }
+
+#entity-list-fdtablePaginaterWrapBottom {
+	float: float;
+	margin-top: -10px;
+	
+	ul {
+		list-style: none;
+	
+		li {
+			float: left;
+		}
+	}
+}
+
+.fdtablePaginater li, {
+
+	a, div {
+		@include fancyButton;	
+		padding: 3px 7px;
+		
+		&.currentPage {
+			color: #333;
+			border-color: darken(#999, 20);
+		}	
+	}
+	
+	div {
+		color: lighten(#333, 50);
+		$bgtop: rgba(240, 239, 239, 0.5);
+		$bgend: rgba(210, 211, 211, 0.5);
+		@include background( linear-gradient(color-stops($bgtop, $bgend)));
+		
+		
+	}
+}
+
+table#entity-list thead tr th {
+	&:hover {
+		background: rgb(232, 232, 232);
+	}
+	
+	&.reverseSort, &.forwardSort {}
+}
+
+
+
+#CoursePeople + .holder{
+	background-color: #fff;
+	@include border-radius(2px);
+	border-color: #bbb;
+}

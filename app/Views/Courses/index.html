@@ -1,0 +1,59 @@
+<div id="content">
+	<h1>Courses</h1>
+
+	<table class="fullwidth sortable-onload-1 no-arrow rowstyle-alt colstyle-alt paginate-15 max-pages-7" id="entity-list">
+		<thead>
+			<tr>
+				<th width="1" class="sortable-text fd-column-0">
+					<a href="#" class="fdTableSortTrigger" title="Sort on Code">Code</a>
+				</th>
+				<th class="sortable-text fd-column-1">
+					<a href="#" class="fdTableSortTrigger" title="Sort on Name">Name</a>
+				</th>
+				<th>
+					Lecturers
+				</th>
+				<th width="200">
+					<input id="entity" type="hidden" value="course" />	
+					<input id="plural" type="hidden" value="courses" />	
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% if courses|length > 0 %}
+			{% for item in courses %}
+				<tr id="{{ item.id }}">
+					<td>{{ item.code }}</td>
+					<td>{{ item.name }}</td>
+					<td>
+						{% set p_count = item.participants|length %}
+						{% set n = 0 %}
+						{% if p_count > 0 %}
+							{% for par in item.participants %}
+								{% set n = n + 1 %}
+								{% if p_count > n %}
+									{% set trailer = "," %}
+								{% else %}
+									{% set trailer = "" %}
+								{% endif %}
+								
+								{{ par.person.firstname }} {{ par.person.lastname }}{{ trailer }}
+							{% endfor%}
+						{% endif %}
+					</td>
+					<td>
+						<a href="javascript:void(0)" class="button red delete">Delete</a>
+						<a href="/courses/edit/{{ item.id }}/" class="button">Edit</a>
+					</td>
+				</tr>
+			{% endfor %}
+		{% else %}
+			<tr>
+				<td colspan="4" style="text-align:center"><em>There are currently no courses.</em></td>
+			</tr>
+		{% endif %}
+		</tbody>
+	</table>
+	<a href="/courses/add/" class="button green" style="clear:both;float:left;margin-top: 15px;">Add new course</a>
+	<div class="clear"></div>
+</div>

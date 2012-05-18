@@ -1,0 +1,317 @@
+@import "compass/css3";
+
+// Over all styling variables. Edit here:
+$grid_border_color: rgb(238, 238, 238);
+$grid_border_edge_color: rgb(203, 203, 203);
+$grid_border_inner_color: rgb(213, 213, 213);
+$header_font_size: 11px;
+
+$table_width_left: 90px;
+
+$table_border_top: rgb(215, 215, 215);
+$table_border_edge: rgb(193, 193, 193);
+$table_border_inner: rgb(213, 213, 213);
+
+$table_background_start: #fff;
+$table_background_mid: rgb(240, 240, 240);
+$table_background_end: rgb(222, 222, 222);
+
+$table_cell_height: 24px;
+
+// Styling for the holders
+#plan-wrapper {
+	// This is necessary because the site header enforces a 10 px margin
+	margin-top: 0px;
+	
+	#left {
+		position:absolute;
+		width: $table_width_left;
+		z-index: 99;	
+	}
+		
+	#outerRight {
+		height: auto;
+		left: $table_width_left;
+		overflow: hidden;
+		position: absolute;
+		z-index: -1;
+		
+		#right {
+			overflow: auto;
+		}	
+	}	
+}
+
+#infobar {
+	$height: 42px;
+	@include background(linear-gradient(color-stops($table_background_start, $table_background_end)));
+	border-bottom: 1px solid $table_border_edge;
+	margin-top: -10px;
+	height: $height;
+	width: 100%;
+	color: 0.9 * rgb(102, 102, 102);
+	font-size: 0.9em;
+	
+	#buttons {
+		float: left;
+		margin-left: 20px;
+		margin-top: 8px;
+	}
+	
+	.bar-item {
+		//display: inline-block;
+		float: right;
+		//height: $height;
+		//line-height: $height;
+		//vertical-align: middle;
+		margin-right: 20px;
+		
+		div {
+			float: left;
+			display: block;
+			margin-top: 15px
+		}
+		
+		.number {
+			color: #fff;
+			@include border-radius(3px);
+			height: 15px;
+			padding: 2px 5px;
+			margin-right: 3px;
+			margin-top:13px;
+			
+			&.red {
+				background-color: 1.2 * rgb(167, 47, 48);
+			}
+			
+			&.green {
+				background-color: 0.9 * rgb(126, 198, 61);
+			}
+		}
+	}
+}
+
+#modal {
+	opacity: 0;
+	pointer-events: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0,0,0,0.5);
+	z-index: 10000;
+	-webkit-transition: opacity 500ms ease-in;
+	-moz-transition: opacity 500ms ease-in;
+	transition: opacity 500ms ease-in;
+
+	&:target {
+		opacity: 1;
+		pointer-events: auto;
+	}
+	
+	&:target > div {
+		-webkit-animation-name: bounce;
+	}
+	
+	& > div {
+		-webkit-animation: minimise 500ms linear;
+	}
+	
+	a[href="#close"] {
+		color: transparent;
+		
+		&:after {
+			content: 'X';
+			display: block;
+		}
+		
+		&:focus:after, &:hover:after {
+			-webkit-transform: scale(1.1,1.1);
+			-moz-transform: scale(1.1,1.1);
+		}
+		
+		&:focus:after {
+			outline: 1px solid #000;
+		}
+	}
+
+}
+
+@-webkit-keyframes bounce {
+	0% {
+				-webkit-transform: scale3d(0.1,0.1,1);
+				box-shadow: 0 3px 20px rgba(0,0,0,0.9);
+	}
+	55% {
+				-webkit-transform: scale3d(1.08,1.08,1);
+				box-shadow: 0 10px 20px rgba(0,0,0,0);
+	}
+	75% {
+				-webkit-transform: scale3d(0.95,0.95,1);
+				-box-shadow: 0 0 20px rgba(0,0,0,0.9);
+	}
+	100% {
+				-webkit-transform: scale3d(1,1,1);
+				box-shadow: 0 3px 20px rgba(0,0,0,0.9);
+	}
+}
+
+@-webkit-keyframes minimise {
+	0% {
+				-webkit-transform: scale3d(1,1,1);
+	}
+	100% {
+				-webkit-transform: scale3d(0.1,0.1,1);
+	}
+}
+
+#filterbox {
+	display: none;
+}
+
+.filterbox {
+	float: left;
+	padding: 16px;
+}
+
+// General rule for both right and left table
+table.plan {
+	border: none;
+}
+
+// Rules for the left table
+#left table.plan {
+	border-right: 1px solid $table_border_edge;
+	width: $table_width_left;
+	
+	tr {
+		th, td {
+			height: 26px;
+			padding: 0px;
+			text-align: center;
+			background: rgb(242, 242, 242);
+			border-bottom: 1px solid $table_border_edge;
+			
+			
+			&.room {
+				border-right: 1px solid $table_border_inner;
+				
+			}
+			
+			&.time {
+				border-bottom: 1px solid $table_border_inner;
+				vertical-align: top;
+			}
+			
+			&.timeLast {
+				border-bottom: 1px solid $table_border_edge;
+				vertical-align: top;
+			}
+			
+			
+			&.cornerBottom, &.cornerTop {
+				padding: 0;
+			}
+			
+			&.cornerTop{
+				@include background(linear-gradient(color-stops($table_background_start, $table_background_mid)));
+				height: 24px;
+				border-bottom: none;
+			}
+			
+			&.cornerBottom {
+				@include background(linear-gradient(color-stops($table_background_mid	, $table_background_end)));
+				border-bottom: 1px solid $table_border_edge;
+				height: 25px;
+			}
+		}
+	}
+}
+
+// Rules for the right table
+#right table, #fixedtableheader0 {
+	thead {
+		border-bottom: 1px solid $table_border_top;
+		
+		tr {
+			@include background(linear-gradient(color-stops($table_background_start, $table_background_mid)));
+			
+			th {
+				border: none;
+				text-align: center;
+				border-right: 1px solid $table_border_top;
+				
+
+					padding: 6px 16px;
+
+				
+				&.week, &.lastDay {
+					border-color: $table_border_edge;
+				}
+			}
+		}
+		
+		// First row in table header
+		tr:first-child {
+			border-bottom: 1px solid $table_border_top;
+		}
+		
+		// Last row in table header
+		tr + tr {
+			@include background(linear-gradient(color-stops($table_background_mid, $table_background_end)));
+			border-bottom: 1px solid $table_border_edge;
+		}
+	}
+	
+	tbody {
+		td {
+			border-right: 1px solid $table_border_inner;
+			border-bottom: 1px solid $table_border_inner;
+			
+			height: $table_cell_height;
+			padding: 1px;
+		}
+		
+		td.slotLastDay, td.slotLastDayAndTime {
+			border-right: 1px solid $table_border_edge;
+		}
+		
+		td.slotLastTime, td.slotLastDayAndTime {
+			border-bottom: 1px solid $table_border_edge;
+		}
+	}
+}
+
+// Droppable
+.slotDiv, .slotDiv_hover {
+	height: $table_cell_height;
+	width: 46px;
+	margin: 0;
+	padding: 0;
+}
+
+.slotDiv_hover {
+	background-color: #aea;
+}
+
+// Reservation style
+div.reservation {
+	width: auto;
+	width: 44px;
+	margin: 0px;
+	height: $table_cell_height;
+	background-color: rgb(126, 198, 61);
+	border: 1px solid rgb(71, 145, 19);
+	color: 0.8 * rgb(71, 145, 19);
+	font-size: 11px;
+	text-transform: uppercase;
+	text-align: center;
+	font-weight: bold;
+	@include border-radius(5px);
+	@include opacity(0.8);
+
+	&:hover {
+		cursor: pointer;
+	}
+}

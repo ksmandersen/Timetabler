@@ -1,0 +1,157 @@
+<div id="infobar">
+	<div id="buttons">
+		<a href="javascript:toggleFilter()" id="button_filter" class="button">Filter</a>
+		<a href="javascript:undoChange()" id="undo" class="button">Undo</a>
+		<input type="button" onclick="javascript:saveChanges()" id="save" class="button" value="Save" />
+	</div>
+	<div id="conflicts" class="bar-item">	
+		<div id="conflicts-number" class="number green">0</div>
+		<div id="conflicts-text">Conflicts</div>
+	</div>
+	<div id="changes" class="bar-item">	
+		<div id="changes-number" class="number green">0</div>
+		<div id="changes-text">Unsaved Changes</div>
+	</div>
+</div>
+<div style="clear:both"></div>
+<div id="filterbox">
+	<div class="filterbox">
+		<b>Days:</b><br />
+		<input id="Mo" type="checkbox"> Monday <br />
+		<input id="Tu" type="checkbox"> Tuesday <br />
+		<input id="We" type="checkbox"> Wednesday <br />
+		<input id="Th" type="checkbox"> Thursday <br />
+		<input id="Fr" type="checkbox"> Friday <br />
+		<input id="Sa" type="checkbox"> Saturday <br />
+		<input id="Su" type="checkbox"> Sunday <br />
+	</div>
+	
+	<div class="filterbox">
+		<b>Weeks:</b><br />
+		<br />
+		From:
+		<select id="weekFrom">
+	  		<option value="31">31</option>
+	  		<option value="32">32</option>
+	  		<option value="33">33</option>
+			<option value="34">34</option>
+			<option value="35">35</option>
+	  		<option value="36">36</option>
+	  		<option value="37">37</option>
+			<option value="38">38</option>
+			<option value="39">39</option>
+	  		<option value="40">40</option>
+	  		<option value="41">41</option>
+			<option value="42">42</option>
+			<option value="43">43</option>
+	  		<option value="44">44</option>
+	  		<option value="45">45</option>
+			<option value="46">46</option>
+			<option value="47">47</option>
+	  		<option value="48">48</option>
+	  		<option value="49">49</option>
+			<option value="50">50</option>
+	  		<option value="51">51</option>
+		</select>
+		To:
+		<select id="weekTo">
+	  		<option value="31">31</option>
+	  		<option value="32">32</option>
+	  		<option value="33">33</option>
+			<option value="34">34</option>
+			<option value="35">35</option>
+	  		<option value="36">36</option>
+	  		<option value="37">37</option>
+			<option value="38">38</option>
+			<option value="39">39</option>
+	  		<option value="40">40</option>
+	  		<option value="41">41</option>
+			<option value="42">42</option>
+			<option value="43">43</option>
+	  		<option value="44">44</option>
+	  		<option value="45">45</option>
+			<option value="46">46</option>
+			<option value="47">47</option>
+	  		<option value="48">48</option>
+	  		<option value="49">49</option>
+			<option value="50">50</option>
+	  		<option value="51">51</option>
+		</select>
+		<br />
+	</div>
+	
+	<div class="filterbox">
+		<b>Time:</b><br />
+		<br />
+		From:
+		<select id="timeFrom">
+	  		<option value="6">6</option>
+	  		<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+	  		<option value="10">10</option>
+	  		<option value="11">11</option>
+			<option value="12">12</option>
+			<option value="13">13</option>
+	  		<option value="14">14</option>
+	  		<option value="15">15</option>
+			<option value="16">16</option>
+			<option value="17">17</option>
+	  		<option value="18">18</option>
+	  		<option value="19">19</option>
+			<option value="20">20</option>
+			<option value="21">21</option>
+			<option value="22">22</option>
+			<option value="23">23</option>
+		</select>
+		To:
+		<select id="timeTo">
+	  		<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+	  		<option value="10">10</option>
+	  		<option value="11">11</option>
+			<option value="12">12</option>
+			<option value="13">13</option>
+	  		<option value="14">14</option>
+	  		<option value="15">15</option>
+			<option value="16">16</option>
+			<option value="17">17</option>
+	  		<option value="18">18</option>
+	  		<option value="19">19</option>
+			<option value="20">20</option>
+			<option value="21">21</option>
+			<option value="22">22</option>
+	  		<option value="23">23</option>
+	  		<option value="24">24</option>
+		</select>
+	</div>
+	
+	<div class="filterbox">
+		<b>Room type:</b><br />
+		<select id="roomType">
+			<option id=""></option>
+			<option value="1">Auditorium</option>
+			<option value="3">Lecture Room</option>
+			<option value="2">Meeting Room</option>
+		</select>
+		<br />
+		<b>Specific room:</b><br />
+		<select id="roomSpecific">
+			<option id=""></option>
+		</select>
+		
+		<a href="javascript:changeFiltering()" class="button green" style="float:right">Go</a>
+	</div>
+	
+	
+	
+</div>
+<div style="clear:both"></div>
+
+<div id="plan-wrapper">
+	<div id="left"></div>
+	<div id="outerRight">
+		<div id="right"></div>
+	</div>
+</div>

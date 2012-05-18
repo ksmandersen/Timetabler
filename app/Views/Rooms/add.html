@@ -1,0 +1,24 @@
+<div id="content">
+	<h1>Add Room</h1>
+
+	<form method="post" action="/rooms/add/" class="nice">
+		<div class="input required">
+			<label for="room_code">Code</label>
+			<input type="text" tabindex="1" class="small input-text" id="room_code" name="room_code" />
+		</div>
+
+		<div class="input">
+			<label for="room_type">Room type</label>
+			<select name="room_type" id="room_type">
+				<option value="1">Auditorium</option>
+				<option value="2">Meeting room</option>
+				<option value="3">Lecture room</option>
+			</select>
+		</div>
+
+		<div class="buttons">
+			<a href="/courses" class="button red" style="float: left">Cancel</a>
+			<input type="submit" class="green" style="float: left" value="Create" />
+		</div>
+	</form>
+</div>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"{% if is_jsview %} class="plan-wrap"{% endif %}>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title></title>
+
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="stylesheet" href="/app/webroot/css/main.css">
+	<link rel="stylesheet" href="/app/webroot/css/fcbkcomplete.css">
+	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body class="plan-wrap">
+	<div id="darkLayer"></div>
+	<div id="dialogChange">
+		You are changing a recurring reservation!
+		<hr />
+		Do you want to change all reservations or only this?
+		<div class="dialogBottons">
+		<a href="javascript:cancelChange()" class="button red">Cancel</a>
+		<a href="javascript:allChange()" class="button green">All</a>
+		<a href="javascript:onlyThisChange()" class="button">Only this</a>
+		</div>
+	</div>
+	<div id="dialogCreate">
+		<form id="saveForm">
+		Create new reservation
+		<hr />
+		<div id="createFormContainer">
+		<div id="dialogLeft">
+			<p>
+			Type
+			</p>
+			<p>
+			Course
+			</p>
+			<p>
+			Recurring
+			</p>
+			<p>
+			Repeat
+			</p>
+		</div>
+		<div id="dialogRight">
+			<p>
+			<select id="selectType">
+		  		<option id="1">Lecture</option>
+		  		<option id="2">Exercise</option>
+		  		<option id="3">Meeting</option>
+			</select>
+			</p>
+			<p>
+			<select id="selectCourse">
+		  		
+			</select>
+			</p>
+			<p>
+			<input type="checkbox" id="selectRecurring">
+			</p>
+			<p>
+				<div class="sideBySideInput" id="selectRecurringNumber">
+				<input type="text" size="2"> 
+				</div>
+				<div class="sideBySideInput">
+				<select id="selectRecurringType">
+			  		<option id="w">Weeks</option>
+			  		<option id="d">Days</option>
+				</select>
+				</div>
+			</p>
+		</div>
+		</div>
+		<div class="dialogBottons">
+		<a href="javascript:cancelCreate()" class="button red">Cancel</a>
+		
+		<input type="submit" id="saveCreateButton"  value="Save" />
+		</form>
+		</div>
+	</div>
+	<div id="header-before"></div>
+	<div id="header-wrapper">
+		<header>
+			<h1 id="logo"><a href="/">lokale.itu.dk</a></h1>
+			<nav id="navigation-main">
+				<ul>
+					<li><a href="/plans/">Plans</a></li>
+					<li><a href="/courses/">Courses</a></li>
+					<li><a href="/rooms/">Rooms</a></li>
+					<li><a href="/people/">People</a></li>
+					<div class="clear"></div>
+				</ul>
+			</nav>
+			<div class="clear"></div>
+		</header>
+	</div>
+	<div id="header-after"></div>
+
+	<div id="content-before"></div>
+	<div id="content-wrapper" role="main"class="plan-wrap">
+		<div id="message-wrapper">
+		</div>

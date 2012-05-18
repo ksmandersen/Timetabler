@@ -1,0 +1,27 @@
+<div id="content">
+	<h2>Plans</h2>
+
+	<table class="fullwidth">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>From</th>
+				<th>To</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for item in plans %}
+		<tr>
+			<td>{{ item.name }}</td>
+			<td>{{ item.from|date }}</td>
+			<td>{{ item.to|date }}</td>
+			<td>
+				<a href="/plans/view/{{ item.id }}/" class="button">View</a>
+			</td>
+		</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	<a href="/plans/add/" class="button green">Add new plan</a>
+</div>

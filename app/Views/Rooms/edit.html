@@ -1,0 +1,24 @@
+<div id="content">
+	<h1>Edit Room</h1>
+
+	<form method="post" action="/rooms/edit/{{ room.id }}/" class="nice">
+		<div class="input required">
+			<label for="room_code">Code</label>
+			<input type="text" tabindex="1" class="small input-text" id="room_code" name="room_code" value="{{ room.code }}" />
+		</div>
+
+		<div class="input">
+			<label for="room_type">Room type</label>
+			<select name="room_type" id="room_type">
+				<option value="1"{% if room.room_type_id == 1 %} selected="selected"{% endif %}>Auditorium</option>
+				<option value="2"{% if room.room_type_id == 2 %} selected="selected"{% endif %}>Meeting room</option>
+				<option value="3"{% if room.room_type_id == 3 %} selected="selected"{% endif %}>Lecture room</option>
+			</select>
+		</div>
+
+		<div class="buttons">
+			<a href="/courses" class="button red" style="float: left">Cancel</a>
+			<input type="submit" class="green" style="float: left" value="Save" />
+		</div>
+	</form>
+</div>

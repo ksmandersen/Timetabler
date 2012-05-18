@@ -1,0 +1,224 @@
+@import "compass/css3";
+// =======
+// PLAN
+// =======
+
+$inner_bg_color: rgb(225, 225, 225);
+$header_bg_start: rgb(245, 245, 245);
+$header_bg_mid: rgb(237, 237, 237);
+$header_bg_end: rgb(229, 229, 229);
+$grid_border_color: rgb(238, 238, 238);
+$grid_border_edge_color: rgb(203, 203, 203);
+$grid_border_inner_color: rgb(213, 213, 213);
+$header_font_size: 11px;
+
+#right {
+	border-right: 1px solid rgb(203, 203, 203);
+}
+
+
+#plan-wrapper {
+	margin-top: 10px;
+	min-width: 960px;
+}
+
+#planHeader {
+	padding: 10px;
+	width: auto;
+}
+
+#planHolder {
+	height: 100%;
+	overflow-x: scroll;
+	width: 100%;
+}
+
+#left {
+	position:absolute;
+	width: 90px;
+	z-index: 1000;
+}
+
+#outerRight {
+	height: auto;
+	left: 90px;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+
+	#right {
+		overflow: auto;
+	}
+}
+
+$table_cell_width: 24px;
+$table_cell_height: 24px;
+$table_cell_padding: 1px;
+
+table.plan {
+	//border-bottom: 0px solid #555;
+	clear: both;
+	//color: #333;
+	margin-bottom: 10px;
+	width: 100%;
+	border-collapse: collapse;
+}
+table.plan tr {
+	border:0px;
+}
+
+
+div.slotDiv, div.slotDiv_hover {
+	width: $table_cell_width; 
+	height: $table_cell_height;
+	padding: 0;
+	margin: 0;
+}
+div.slotDiv_hover {
+	background: #aea;
+}
+
+// =======
+// RESERVATIONS
+// =======
+
+div.reservation {
+	width: 10px; 
+	padding: 0;
+	margin: 0;
+	height: 10px;
+	background-color: rgb(126, 198, 61);
+	border: 1px solid rgb(71, 145, 19);
+	color: 0.8 * rgb(71, 145, 19);
+	font-size: 11px;
+	text-transform: uppercase;
+	text-align: center;
+	font-weight: bold;
+	@include border-radius(5px);
+	@include opacity(0.8);
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+
+
+table#planRight, table#fixedtableheader0 {
+	border: none;
+	table-layout: auto;
+
+	thead {
+		border-bottom: 1px solid $grid_border_edge_color;
+		border-top: 1px solid rgb(215, 215, 215);
+
+		tr {
+			@include background(linear-gradient(color-stops($header_bg_start, $header_bg_mid)));
+
+			&:first-child {
+				border-bottom: 1px solid $inner_bg_color;
+			}
+
+			th, td {
+				/*border: 0;
+				text-align: center;
+				color: #555;
+				font-size: $header_font_size;
+				border-right: 1px solid $inner_bg_color;
+				border: 0;
+				//border-right: 1px solid #999;
+				text-align: center;
+				padding:4px;*/
+
+				&.day, &.lastDay {
+					width: $table_cell_width
+				}
+
+				&.week {
+					border-color: $grid_border_inner_color;
+				}
+
+				/* TODO: The last day in a week */
+				&.lastDay{
+					border-right: 1px solid $grid_border_inner_color
+				}
+			}
+		}
+
+		tr + tr {
+			@include background(linear-gradient(color-stops($header_bg_mid, $header_bg_end)));
+		}
+	}
+
+	tbody {
+		td.slot, td.slotLastDay, td.SlotLastDayAndTime, td.slotLastTime {
+			/*width: $table_cell_width;
+			height: $table_cell_height;
+			padding: 1px;
+			text-align: left;
+			vertical-align: top;*/
+		}
+
+		td {
+			border-right: 1px solid $grid_border_color;
+			border-bottom: 1px solid $grid_border_color;
+		}
+
+		td.slotLastDay, td.slotLastDayAndTime {
+			border-right: 1px solid $grid_border_inner_color;
+		}
+
+		td.slotLastTime, td.slotLastDayAndTime {
+			border-bottom: 1px solid $grid_border_inner_color;
+		}
+	}
+}
+
+table#planLeft {
+	width: 90px;
+
+	tbody {
+		tr {
+			border-right: 1px solid $grid_border_edge_color;
+
+			th {
+				color: #555;
+				font-size: $header_font_size;
+				vertical-align: middle;
+			}
+
+			th.cornerBottom, th.cornerTop {
+				height: 22px;
+				padding: 0;
+			}
+
+			th.cornerTop{
+				@include background(linear-gradient(color-stops($header_bg_start, $header_bg_mid)));
+				height: 21px;
+			}
+
+			th.cornerBottom {
+				@include background(linear-gradient(color-stops($header_bg_mid	, $header_bg_end)));
+				border-bottom: 1px solid $grid_border_edge_color;
+			}
+
+			th.room {
+				@include background(linear-gradient(left, color-stops($header_bg_start, $header_bg_mid)));
+				border-right: 1px solid $inner_bg_color;
+				border-bottom: 1px solid $inner_bg_color;
+			}
+
+			th.time {
+				@include background(linear-gradient(left, color-stops($header_bg_mid, $header_bg_end)));
+				border-bottom: 1px solid $inner_bg_color;
+				height: 18px;
+				vertical-align: top;
+			}
+
+			th.lastTime, th.room {
+				border-bottom: 1px solid $grid_border_inner_color;
+			}
+
+		}
+	}
+}

@@ -1,0 +1,40 @@
+<div id="content">
+	<h1>People</h1>
+
+	<table class="fullwidth sortable-onload-1 no-arrow rowstyle-alt colstyle-alt paginate-15 max-pages-7" id="entity-list">
+		<thead>
+			<tr>
+				<th width="1" class="sortable-text fd-column-0">
+					<a href="#" class="fdTableSortTrigger" title="Sort on Code">Initials</a>
+				</th>
+				<th class="sortable-text fd-column-1">
+					<a href="#" class="fdTableSortTrigger" title="Sort on Name">Name</a>
+				</th>
+				<th width="200">
+					<input id="entity" type="hidden" value="person" />	
+					<input id="plural" type="hidden" value="people" />	
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% if people|length > 0 %}
+			{% for item in people %}
+				<tr id="{{ item.id }}">
+					<td>{{ item.initials }}</td>
+					<td>{{ item.firstname }} {{ item.lastname }}</td>
+					<td>
+						<a href="javascript:void(0)" class="button red delete">Delete</a>
+						<a href="/people/edit/{{ item.id }}/" class="button">Edit</a>
+					</td>
+				</tr>
+			{% endfor %}
+		{% else %}
+			<tr>
+				<td colspan="4" style="text-align:center"><em>Forever alone.</em></td>
+			</tr>
+		{% endif %}
+		</tbody>
+	</table>
+	<a href="/rooms/add/" class="button green" style="clear:both;float:left;margin-top: 15px;">Add new person</a>
+	<div class="clear"></div>
+</div>

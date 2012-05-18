@@ -1,0 +1,26 @@
+<div id="content">
+	<h1>Add Course</h1>
+
+	<form method="post" action="/courses/add/" class="nice">
+		<div class="input required">
+			<label for="course_name">Name</label>
+			<input type="text" tabindex="1" class="medium input-text" id="course_name" name="course_name" />
+		</div>
+		
+		<div class="input required">
+			<label for="course_code">Code</label>
+			<input type="text" tabindex="1" class="small input-text" id="course_code" name="course_code" />
+		</div>
+		
+		<div class="input">
+			<label for="course_participants">Lecturers</label>
+			<select name="course_participants" id="course_participants">
+			</select>
+		</div>
+		
+		<div class="buttons">
+			<a href="/courses" class="button red" style="float: left">Cancel</a>
+			<input type="submit" class="green" style="float: left" value="Create" />
+		</div>
+	</form>
+</div>
