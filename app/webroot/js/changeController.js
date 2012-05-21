@@ -144,8 +144,8 @@ function undo(){
 		updateModuleId(newId, oldId);
 		
 		// Check for conlicts
-		removeConflictsRegarding(oldId);
-		checkForConflictsRegarding(newId);
+		removeConflictsRegarding(newId);
+		checkForConflictsRegarding(oldId);
 	}
 }
 
